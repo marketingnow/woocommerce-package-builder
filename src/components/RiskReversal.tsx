@@ -1,79 +1,61 @@
+import { Check, X } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Shield, RefreshCw, Award, CheckCircle } from "lucide-react";
+import terrafreeze from "@/assets/terrafreeze-product.png";
 
 export const RiskReversal = () => {
-  const guarantees = [
-    {
-      icon: Shield,
-      title: "100% Money-Back Guarantee",
-      description: "Not satisfied? Get a full refund within 30 days, no questions asked.",
-    },
-    {
-      icon: RefreshCw,
-      title: "Free Returns & Exchanges",
-      description: "Easy returns and exchanges. We'll cover the shipping costs.",
-    },
-    {
-      icon: Award,
-      title: "Premium Quality",
-      description: "Certified materials and rigorous quality testing on every product.",
-    },
-  ];
-
-  const alternatives = [
-    { feature: "Premium Materials", us: true, them: false },
-    { feature: "Money-Back Guarantee", us: true, them: false },
-    { feature: "Free Shipping", us: true, them: true },
-    { feature: "Bulk Discounts", us: true, them: false },
-    { feature: "Lifetime Warranty", us: true, them: false },
-  ];
-
   return (
-    <section className="py-12 border-t border-border bg-muted/30">
-      <div className="space-y-12">
-        <div className="text-center space-y-2">
-          <h2 className="text-3xl font-bold text-foreground">Risk-Free Purchase</h2>
-          <p className="text-muted-foreground">Your satisfaction is guaranteed</p>
+    <section className="py-16 bg-primary text-primary-foreground">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <img
+              src={terrafreeze}
+              alt="TERRAFREEZE Pain Relief Cream"
+              className="w-full max-w-sm mx-auto"
+            />
+          </div>
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              TERRAFREEZE EXTRA STRENGTH
+            </h2>
+            <p className="text-primary-foreground/80">
+              Reclaim Your Active Life With Our Powerful, Fast-Acting Pain Relief Formula. 
+              Trusted by thousands for arthritis, muscle pain, and joint inflammation.
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3">
+                <Check className="w-5 h-5 text-success" />
+                <span>Fast-acting pain relief within minutes</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Check className="w-5 h-5 text-success" />
+                <span>Contains Emu Oil and Arnica for deep healing</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Check className="w-5 h-5 text-success" />
+                <span>Produced in FDA-certified manufacturing facility</span>
+              </li>
+            </ul>
+            <button className="bg-cta hover:bg-cta-hover text-cta-foreground font-bold py-4 px-8 rounded-lg text-lg uppercase transition-colors shadow-lg">
+              RECLAIM MY MENTAL & COGNITIVE HEALTH
+            </button>
+          </div>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-6">
-          {guarantees.map((guarantee, index) => (
-            <Card key={index} className="p-6 space-y-4 text-center">
-              <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
-                <guarantee.icon className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="font-bold text-foreground">{guarantee.title}</h3>
-              <p className="text-sm text-muted-foreground">{guarantee.description}</p>
-            </Card>
-          ))}
-        </div>
+      </div>
 
-        <div className="max-w-3xl mx-auto">
-          <h3 className="text-2xl font-bold text-center text-foreground mb-6">
-            Why Choose Us Over Alternatives?
+      {/* Comparison Chart Placeholder */}
+      <div className="container mx-auto px-4 max-w-4xl mt-16">
+        <Card className="p-8 bg-background text-foreground">
+          <h3 className="text-2xl font-bold text-primary text-center mb-6">
+            TERRAFREEZE vs Other Pain Relief Products
           </h3>
-          <Card className="overflow-hidden">
-            <div className="grid grid-cols-3 bg-muted font-semibold text-sm">
-              <div className="p-4 text-foreground">Feature</div>
-              <div className="p-4 text-center text-foreground border-l border-border">
-                Us <Badge className="ml-2 bg-badge text-badge-foreground">Best</Badge>
-              </div>
-              <div className="p-4 text-center text-muted-foreground border-l border-border">Others</div>
-            </div>
-            {alternatives.map((alt, index) => (
-              <div key={index} className="grid grid-cols-3 border-t border-border text-sm">
-                <div className="p-4 text-foreground">{alt.feature}</div>
-                <div className="p-4 text-center border-l border-border">
-                  {alt.us ? <CheckCircle className="w-5 h-5 text-green-600 mx-auto" /> : "—"}
-                </div>
-                <div className="p-4 text-center border-l border-border">
-                  {alt.them ? <CheckCircle className="w-5 h-5 text-green-600 mx-auto" /> : "—"}
-                </div>
-              </div>
-            ))}
-          </Card>
-        </div>
+          <div className="text-center p-8 bg-secondary rounded-lg">
+            <p className="text-primary font-semibold mb-2">📊 Comparison Chart Placeholder</p>
+            <p className="text-sm text-muted-foreground">
+              [Insert product comparison table HTML here]
+            </p>
+          </div>
+        </Card>
       </div>
     </section>
   );

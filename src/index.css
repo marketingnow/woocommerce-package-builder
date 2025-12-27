@@ -2,93 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* TERRAFREEZE Pain Relief Cream - Blue/Grey/White Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 210 40% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 210 40% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 210 40% 20%;
 
-    --primary: 0 0% 10%;
-    --primary-foreground: 0 0% 98%;
+    /* Primary - Deep Blue */
+    --primary: 210 60% 30%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
+    /* Secondary - Light Grey/Blue */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 40% 20%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 50%;
 
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent - Teal/Cyan for highlights */
+    --accent: 190 70% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 10%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 210 60% 30%;
 
-    --radius: 0.375rem;
+    --radius: 0.5rem;
     
-    --badge: 25 95% 53%;
-    --badge-foreground: 0 0% 98%;
+    /* Amazon Yellow for CTAs */
+    --cta: 45 100% 51%;
+    --cta-foreground: 210 40% 15%;
+    --cta-hover: 45 100% 45%;
+    
+    /* Success/Green accent */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Orange accent */
+    --orange: 25 95% 53%;
+    --orange-foreground: 0 0% 100%;
+    
+    /* Trust bar blue */
+    --trust: 210 60% 35%;
+    --trust-foreground: 0 0% 100%;
+
+    /* Star rating gold */
+    --star: 45 93% 47%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 10%;
+    --background: 210 40% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 10%;
+    --card: 210 35% 15%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 10%;
+    --popover: 210 35% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 210 60% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 210 30% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 210 30% 20%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 0 0% 20%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 190 70% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 83%;
+    --border: 210 30% 25%;
+    --input: 210 30% 25%;
+    --ring: 210 60% 50%;
     
-    --badge: 25 95% 53%;
-    --badge-foreground: 0 0% 98%;
+    --cta: 45 100% 51%;
+    --cta-foreground: 210 40% 15%;
+    --cta-hover: 45 100% 55%;
+    
+    --success: 142 70% 50%;
+    --success-foreground: 0 0% 100%;
+    
+    --orange: 25 95% 53%;
+    --orange-foreground: 0 0% 100%;
+    
+    --trust: 210 60% 45%;
+    --trust-foreground: 0 0% 100%;
+
+    --star: 45 93% 47%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -107,5 +131,16 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gradient-trust {
+    background: linear-gradient(135deg, hsl(210, 60%, 35%) 0%, hsl(210, 60%, 25%) 100%);
   }
 }

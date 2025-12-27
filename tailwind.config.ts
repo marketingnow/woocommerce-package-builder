@@ -47,10 +47,24 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        badge: {
-          DEFAULT: "hsl(var(--badge))",
-          foreground: "hsl(var(--badge-foreground))",
+        cta: {
+          DEFAULT: "hsl(var(--cta))",
+          foreground: "hsl(var(--cta-foreground))",
+          hover: "hsl(var(--cta-hover))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        orange: {
+          DEFAULT: "hsl(var(--orange))",
+          foreground: "hsl(var(--orange-foreground))",
+        },
+        trust: {
+          DEFAULT: "hsl(var(--trust))",
+          foreground: "hsl(var(--trust-foreground))",
+        },
+        star: "hsl(var(--star))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
