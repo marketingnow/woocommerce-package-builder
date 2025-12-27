@@ -1,44 +1,43 @@
-import { Card } from "@/components/ui/card";
-import { LucideIcon } from "lucide-react";
+import { Droplets, Leaf, Sparkles } from "lucide-react";
 
-interface Feature {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  benefit: string;
-}
+export const FeaturesAndBenefits = () => {
+  const ingredients = [
+    {
+      icon: Droplets,
+      name: "Emu Oil",
+      description: "Deeply penetrating carrier oil that delivers active ingredients directly to inflamed tissues for maximum relief.",
+    },
+    {
+      icon: Leaf,
+      name: "Arnica Montana",
+      description: "Natural anti-inflammatory herb used for centuries to reduce swelling, bruising, and muscle pain.",
+    },
+    {
+      icon: Sparkles,
+      name: "MSM",
+      description: "Supports joint health, reduces inflammation, and helps build collagen for healthy connective tissue.",
+    },
+  ];
 
-interface FeaturesAndBenefitsProps {
-  features: Feature[];
-}
-
-export const FeaturesAndBenefits = ({ features }: FeaturesAndBenefitsProps) => {
   return (
-    <section className="py-12 border-t border-border bg-muted/30">
-      <div className="space-y-8">
-        <div className="text-center space-y-2">
-          <h2 className="text-3xl font-bold text-foreground">Features + Benefits</h2>
-          <p className="text-muted-foreground">Why this product will change your life</p>
+    <section className="py-16 bg-secondary">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
+            MADE FROM NATURAL INGREDIENTS YOUR BODY NEEDS
+          </h2>
+          <p className="text-muted-foreground">Natural ingredients for natural relief</p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <Card key={index} className="p-6 space-y-4 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <feature.icon className="w-6 h-6 text-primary" />
+
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {ingredients.map((ingredient, index) => (
+            <div key={index} className="text-center">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
+                <ingredient.icon className="w-10 h-10 text-accent" />
               </div>
-              
-              <div className="space-y-2">
-                <h3 className="font-bold text-foreground">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </div>
-              
-              <div className="pt-2 border-t border-border">
-                <p className="text-sm font-semibold text-foreground">
-                  → {feature.benefit}
-                </p>
-              </div>
-            </Card>
+              <h3 className="text-lg font-bold text-primary mb-2">{ingredient.name}</h3>
+              <p className="text-sm text-muted-foreground">{ingredient.description}</p>
+            </div>
           ))}
         </div>
       </div>
