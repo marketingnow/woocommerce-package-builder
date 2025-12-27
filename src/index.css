@@ -7,13 +7,13 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 40% 20%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 20%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 20%;
+    --popover-foreground: 0 0% 10%;
 
     /* Primary - Deep Blue */
     --primary: 210 60% 30%;
@@ -21,7 +21,7 @@
 
     /* Secondary - Light Grey/Blue */
     --secondary: 210 20% 96%;
-    --secondary-foreground: 210 40% 20%;
+    --secondary-foreground: 0 0% 10%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 210 15% 50%;
