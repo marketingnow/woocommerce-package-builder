@@ -88,22 +88,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works / 3 Reasons Section */}
-      <HowItWorks />
-
-      {/* Features + Natural Ingredients Section */}
-      <FeaturesAndBenefits />
-
       {/* Social Proof / Testimonials Section */}
       <SocialProof />
 
-      {/* Risk Reversal / CTA Section */}
+      {/* Features + Benefits Section (6-card grid) */}
+      <FeaturesAndBenefits />
+
+      {/* How It Works Section */}
+      <HowItWorks />
+
+      {/* Invalidate Alternatives / Comparison Section */}
       <RiskReversal />
 
       {/* FAQ Section */}
       <FAQ />
 
-      {/* Reviews Section */}
+      {/* Final CTA + Reviews Section */}
       <ReviewsSection />
     </div>
   );
