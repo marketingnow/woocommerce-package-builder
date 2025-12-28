@@ -28,9 +28,9 @@ const Index = () => {
       </div>
 
       {/* Buy Box Section */}
-      <section className="bg-background py-10">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+      <section className="bg-background py-6 md:py-8">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
             <ProductGallery 
               images={productImages}
               testimonial={{
@@ -42,7 +42,7 @@ const Index = () => {
             <ProductDetails
               title="NATURAL RELIEF FOR YOUR PAIN"
               subtitle="Reclaim Your Active Life"
-              price={39.99}
+              price={29.95}
               rating={4.95}
               reviewCount={100}
               tagline="Apply for at least 3 months for optimal results."
