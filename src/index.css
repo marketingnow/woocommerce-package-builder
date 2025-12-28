@@ -131,6 +131,28 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  /* High-conversion typography */
+  h1, .headline-primary {
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight leading-none;
+  }
+
+  h2, .headline-section {
+    @apply text-3xl md:text-4xl font-bold uppercase tracking-tight;
+  }
+
+  h3, .headline-sub {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
+  .body-large {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .cta-text {
+    @apply text-lg md:text-xl font-bold uppercase tracking-wide;
   }
 }
 
@@ -142,5 +164,17 @@
   
   .gradient-trust {
     background: linear-gradient(135deg, hsl(210, 60%, 35%) 0%, hsl(210, 60%, 25%) 100%);
+  }
+
+  .gradient-cta {
+    background: linear-gradient(135deg, hsl(45, 100%, 51%) 0%, hsl(38, 95%, 45%) 100%);
+  }
+
+  .gradient-success {
+    background: linear-gradient(135deg, hsl(142, 70%, 45%) 0%, hsl(142, 70%, 35%) 100%);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(210, 60%, 40%) 0%, hsl(210, 60%, 30%) 100%);
   }
 }
