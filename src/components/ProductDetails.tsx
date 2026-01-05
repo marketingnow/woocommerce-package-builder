@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Star, Check, Pill, Truck, ShieldCheck } from "lucide-react";
+import { Star, Check, Truck, ShieldCheck, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ProductDetailsProps {
@@ -15,34 +15,34 @@ interface ProductDetailsProps {
 const packages = [
   { 
     id: "1_tube",
-    label: "1 Tube", 
-    description: "Perfect for trying TERRAFREEZE™",
+    label: "1 Tube (1 Month)", 
+    description: "You save $10 + Free Shipping",
     price: 29.95, 
     originalPrice: 39.95,
     savings: 10,
-    freeShipping: false,
+    freeShipping: true,
     badge: null,
   },
   { 
     id: "3_tubes",
-    label: "3 Tubes", 
-    description: "Home, work & travel coverage",
+    label: "Value Package 3 (1 FREE)", 
+    description: "You save $30 + Free Shipping",
     price: 69.95, 
     originalPrice: 99.95,
     savings: 30,
     freeShipping: true,
-    badge: "MOST POPULAR",
+    badge: "Most popular",
     badgeColor: "primary",
   },
   { 
     id: "6_tubes",
-    label: "6 Tubes", 
-    description: "Maximum savings & long-term relief",
+    label: "6 Tubes (4 Months)", 
+    description: "You save $60 + Free Shipping",
     price: 119.95, 
     originalPrice: 179.95,
     savings: 60,
     freeShipping: true,
-    badge: "BEST VALUE",
+    badge: "Best Value",
     badgeColor: "orange",
   },
 ];
@@ -54,18 +54,18 @@ export const ProductDetails = ({
   reviewCount,
   features,
 }: ProductDetailsProps) => {
-  const [selectedPackage, setSelectedPackage] = useState(packages[0]);
+  const [selectedPackage, setSelectedPackage] = useState(packages[1]);
 
   return (
-    <div className="flex flex-col gap-4">
-      {/* Rating */}
+    <div className="flex flex-col gap-5">
+      {/* Rating - Compact */}
       <div className="flex items-center gap-2">
         <div className="flex">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
               className={cn(
-                "w-5 h-5",
+                "w-4 h-4",
                 i < Math.floor(rating)
                   ? "fill-star text-star"
                   : "fill-muted text-muted"
@@ -73,43 +73,62 @@ export const ProductDetails = ({
             />
           ))}
         </div>
-        <span className="text-sm font-semibold text-primary">
-          Rated {rating}/5 • {reviewCount}+ Happy Customers
+        <span className="text-sm font-medium text-primary">
+          {rating} ({reviewCount} reviews)
         </span>
       </div>
 
-      {/* Title */}
+      {/* Title - Refined, smaller */}
       <div>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary uppercase tracking-tight leading-tight">
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
           {title}
         </h1>
-        <p className="text-lg md:text-xl text-foreground mt-1 font-medium">{subtitle}</p>
       </div>
 
-      {/* Features */}
+      {/* Price Display */}
+      <div className="flex items-baseline gap-3">
+        <span className="text-2xl md:text-3xl font-bold text-foreground">
+          ${selectedPackage.price.toFixed(2)}
+        </span>
+        <span className="text-lg text-muted-foreground line-through">
+          ${selectedPackage.originalPrice.toFixed(2)}
+        </span>
+      </div>
+
+      {/* Description */}
+      <p className="text-base text-muted-foreground leading-relaxed">
+        {subtitle}
+      </p>
+
+      {/* Features - Icon bullets */}
       <div className="flex flex-col gap-2">
         {features.map((feature, index) => (
-          <div key={index} className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-            <span className="text-base md:text-lg text-foreground">{feature}</span>
+          <div key={index} className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Check className="w-3 h-3 text-primary" />
+            </div>
+            <span className="text-sm md:text-base text-foreground">{feature}</span>
           </div>
         ))}
       </div>
 
-      {/* Package Selector - Stacked Layout */}
-      <div className="bg-card rounded-xl shadow-lg p-4 space-y-2">
-        <h2 className="text-lg md:text-xl font-bold text-center gradient-primary bg-clip-text text-transparent">
-          Choose Your Relief Package
-        </h2>
-        
+      {/* Sale Banner */}
+      <div className="text-center py-2 border-y border-border">
+        <span className="text-sm font-semibold text-foreground">
+          New Year Sale Up to 60% Off Sitewide
+        </span>
+      </div>
+
+      {/* Package Selector - Clean stacked */}
+      <div className="space-y-2">
         {packages.map((pkg) => (
           <div 
             key={pkg.id}
             className={cn(
-              "relative border-2 rounded-lg overflow-hidden transition-all cursor-pointer",
+              "relative border rounded-lg transition-all cursor-pointer",
               selectedPackage.id === pkg.id
-                ? "border-primary bg-primary/5 shadow-md"
-                : "border-border hover:border-primary/50 hover:shadow-sm"
+                ? "border-primary bg-primary/5 ring-1 ring-primary"
+                : "border-border hover:border-primary/50"
             )}
             onClick={() => setSelectedPackage(pkg)}
           >
@@ -117,135 +136,106 @@ export const ProductDetails = ({
             {pkg.badge && (
               <div 
                 className={cn(
-                  "absolute top-0 right-0 text-[10px] font-bold px-3 py-1 rounded-bl-lg text-white",
-                  pkg.badgeColor === "orange" ? "gradient-cta" : "gradient-primary"
+                  "absolute top-2 right-2 text-xs font-medium px-2 py-0.5 rounded text-white",
+                  pkg.badgeColor === "orange" ? "bg-amber-500" : "bg-primary"
                 )}
               >
                 {pkg.badge}
               </div>
             )}
             
-            <label className="flex items-center justify-between p-3 cursor-pointer">
+            <label className="flex items-center gap-3 p-3 cursor-pointer">
               <input
                 type="radio"
                 name="package"
                 value={pkg.id}
                 checked={selectedPackage.id === pkg.id}
                 onChange={() => setSelectedPackage(pkg)}
-                className="sr-only"
+                className="w-4 h-4 text-primary border-border focus:ring-primary"
               />
               
-              <div className="flex-1 pr-20">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-base md:text-lg font-bold text-foreground">{pkg.label}</span>
-                  <span className="gradient-success text-white text-xs font-bold px-2 py-0.5 rounded">
-                    SAVE ${pkg.savings}
-                  </span>
-                </div>
-                <span className="text-sm text-muted-foreground block">{pkg.description}</span>
-                {pkg.freeShipping && (
-                  <span className="text-sm text-primary font-semibold">+ FREE Shipping</span>
-                )}
+              <div className="flex-1">
+                <span className="text-sm md:text-base font-semibold text-foreground block">
+                  {pkg.label}
+                </span>
+                <span className="text-xs text-muted-foreground">{pkg.description}</span>
               </div>
               
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 text-right">
-                <span className="text-xl font-bold text-foreground block">${pkg.price.toFixed(2)}</span>
-                <span className="text-sm text-muted-foreground line-through">${pkg.originalPrice.toFixed(2)}</span>
+              <div className="text-right">
+                <span className="text-lg font-bold text-foreground block">${pkg.price.toFixed(2)}</span>
+                <span className="text-xs text-muted-foreground line-through">${pkg.originalPrice.toFixed(2)}</span>
               </div>
             </label>
           </div>
         ))}
-        
-        {/* Add to Cart Button */}
-        <button className="w-full py-4 gradient-cta hover:opacity-90 text-cta-foreground font-bold text-lg uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-          ADD TO CART — ${selectedPackage.price.toFixed(2)}
-        </button>
       </div>
 
-      {/* Trust Badges Below CTA */}
-      <div className="flex items-center justify-center gap-4 text-sm text-foreground flex-wrap">
-        <span className="flex items-center gap-1">
-          <Check className="w-4 h-4 text-success" />
-          Doctor's Approved
-        </span>
-        <span className="text-muted-foreground">✦</span>
-        <span className="flex items-center gap-1">
-          <Truck className="w-4 h-4 text-primary" />
-          Free & Fast delivery
+      {/* Urgency */}
+      <div className="flex items-center gap-2 text-sm">
+        <AlertCircle className="w-4 h-4 text-destructive" />
+        <span className="text-foreground">
+          <span className="font-semibold">Almost sold out!</span> Only 9 left in stock.
         </span>
       </div>
 
-      {/* USP Bar */}
-      <div className="grid grid-cols-3 gap-3 py-3 border-y border-border">
-        <div className="flex flex-col items-center text-center gap-1">
-          <Pill className="w-6 h-6 text-primary" />
-          <span className="text-xs font-semibold text-foreground">Fast-Acting</span>
-          <span className="text-xs text-muted-foreground">Relief Formula</span>
+      {/* CTA Button */}
+      <button className="w-full py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base uppercase rounded-lg transition-all">
+        GRAB THIS SET
+      </button>
+
+      {/* Money Back + Payment Icons */}
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <ShieldCheck className="w-4 h-4" />
+          <span>Try it for 30 days or your money back</span>
         </div>
-        <div className="flex flex-col items-center text-center gap-1 border-x border-border">
-          <Truck className="w-6 h-6 text-primary" />
-          <span className="text-xs font-semibold text-foreground">FREE & Fast</span>
-          <span className="text-xs text-muted-foreground">Delivery</span>
-        </div>
-        <div className="flex flex-col items-center text-center gap-1">
-          <ShieldCheck className="w-6 h-6 text-primary" />
-          <span className="text-xs font-semibold text-foreground">Risk-Free 30</span>
-          <span className="text-xs text-muted-foreground">Days</span>
+        <div className="flex items-center gap-2">
+          <img src="https://cdn-icons-png.flaticon.com/32/349/349221.png" alt="Visa" className="h-6 opacity-70" />
+          <img src="https://cdn-icons-png.flaticon.com/32/349/349228.png" alt="Mastercard" className="h-6 opacity-70" />
+          <img src="https://cdn-icons-png.flaticon.com/32/349/349230.png" alt="PayPal" className="h-6 opacity-70" />
+          <img src="https://cdn-icons-png.flaticon.com/32/6124/6124998.png" alt="Apple Pay" className="h-6 opacity-70" />
         </div>
       </div>
 
-      {/* Product Info Accordion - Compact */}
-      <div className="space-y-0">
+      {/* Product Info Accordion */}
+      <div className="space-y-0 border rounded-lg overflow-hidden">
         <details className="group border-b border-border">
-          <summary className="flex items-center justify-between cursor-pointer py-3 font-semibold text-base text-foreground hover:text-primary transition-colors">
-            <span>Benefits</span>
-            <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
+            <span>What's Inside the Kit</span>
+            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
-          <div className="pb-3 text-sm text-foreground">
+          <div className="p-4 pt-0 text-sm text-muted-foreground">
             <ul className="space-y-1">
               <li>• Fast-acting pain relief for muscles and joints</li>
               <li>• Contains Emu Oil and Arnica for enhanced healing</li>
               <li>• Non-greasy, fast-absorbing formula</li>
-              <li>• Ideal for arthritis, back pain, and inflammation</li>
             </ul>
           </div>
         </details>
         
         <details className="group border-b border-border">
-          <summary className="flex items-center justify-between cursor-pointer py-3 font-semibold text-base text-foreground hover:text-primary transition-colors">
-            <span>Potency & Ingredients</span>
-            <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
+            <span>Shipping & Guarantee</span>
+            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
-          <div className="pb-3 text-sm text-foreground">
-            <p>Active ingredients: Menthol, Emu Oil, Arnica Montana, MSM, and natural botanicals.</p>
-          </div>
-        </details>
-
-        <details className="group border-b border-border">
-          <summary className="flex items-center justify-between cursor-pointer py-3 font-semibold text-base text-foreground hover:text-primary transition-colors">
-            <span>How Do I Use It?</span>
-            <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </summary>
-          <div className="pb-3 text-sm text-foreground">
-            <p>Apply a thin layer to affected areas 2-3 times daily. Massage gently until absorbed.</p>
+          <div className="p-4 pt-0 text-sm text-muted-foreground">
+            <p>Free shipping on all orders. 30-day money-back guarantee.</p>
           </div>
         </details>
 
         <details className="group">
-          <summary className="flex items-center justify-between cursor-pointer py-3 font-semibold text-base text-foreground hover:text-primary transition-colors">
-            <span>How Long Until Results?</span>
-            <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
+            <span>Ingredients & Standards</span>
+            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
-          <div className="pb-3 text-sm text-foreground">
-            <p>Most users experience relief within minutes. For chronic conditions, optimal results are typically seen within 2-4 weeks of consistent use.</p>
+          <div className="p-4 pt-0 text-sm text-muted-foreground">
+            <p>Active ingredients: Menthol, Emu Oil, Arnica Montana, MSM, and natural botanicals.</p>
           </div>
         </details>
       </div>
