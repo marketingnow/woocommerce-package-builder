@@ -5,7 +5,7 @@ export const FeaturesAndBenefits = () => {
     {
       category: "DEEP PENETRATION",
       name: "Emu Oil",
-      description: "Carries active ingredients through all 7 layers of skin directly to inflamed tissues. This results in faster relief, reduced swelling, and pain that actually goes away.",
+      description: "Carries active ingredients through all 7 layers of skin directly to inflamed tissues. Faster relief, reduced swelling, and pain that actually goes away.",
       badge: "Clinical-Grade Carrier",
       badgeColor: "bg-primary",
       image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=200&h=200&fit=crop&q=80"
@@ -13,7 +13,7 @@ export const FeaturesAndBenefits = () => {
     {
       category: "ANTI-INFLAMMATORY",
       name: "Arnica Montana",
-      description: "Powerful natural herb that reduces inflammation and bruising at the cellular level. This results in less swelling, faster healing, and relief that lasts for hours.",
+      description: "Powerful natural herb that reduces inflammation and bruising at the cellular level. Less swelling, faster healing, and relief that lasts for hours.",
       badge: "Used for 500+ years",
       badgeColor: "bg-success",
       image: "https://images.unsplash.com/photo-1518882605630-8eb589210781?w=200&h=200&fit=crop&q=80"
@@ -21,10 +21,34 @@ export const FeaturesAndBenefits = () => {
     {
       category: "JOINT SUPPORT",
       name: "MSM & Glucosamine",
-      description: "Supports joint health by rebuilding cartilage and reducing oxidative stress. This results in improved mobility, less stiffness, and long-term joint protection.",
+      description: "Supports joint health by rebuilding cartilage and reducing oxidative stress. Improved mobility, less stiffness, and long-term joint protection.",
       badge: "Supports cellular repair",
       badgeColor: "bg-accent",
       image: "https://images.unsplash.com/photo-1559757175-7cb05f416679?w=200&h=200&fit=crop&q=80"
+    },
+    {
+      category: "COOLING RELIEF",
+      name: "Menthol",
+      description: "Provides immediate cooling sensation that soothes pain on contact. Creates a refreshing feeling while blocking pain signals to the brain.",
+      badge: "Instant cooling action",
+      badgeColor: "bg-primary",
+      image: "https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?w=200&h=200&fit=crop&q=80"
+    },
+    {
+      category: "WARMING ACTION",
+      name: "Camphor",
+      description: "Stimulates blood flow to treated areas, promoting natural healing. Provides warming relief that penetrates deep into muscles and joints.",
+      badge: "Improves circulation",
+      badgeColor: "bg-success",
+      image: "https://images.unsplash.com/photo-1474979266404-7d59ebcbe696?w=200&h=200&fit=crop&q=80"
+    },
+    {
+      category: "SKIN REPAIR",
+      name: "Vitamin E",
+      description: "Powerful antioxidant that nourishes and protects skin while enhancing absorption. Supports tissue repair and keeps skin healthy.",
+      badge: "Antioxidant protection",
+      badgeColor: "bg-accent",
+      image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=200&h=200&fit=crop&q=80"
     },
   ];
 
@@ -50,7 +74,7 @@ export const FeaturesAndBenefits = () => {
           We don't hide behind 30-ingredient labels. TERRAFREEZE™ contains only clinically-proven active ingredients, each one selected to deliver real pain relief from within.
         </p>
 
-        {/* 3 Ingredient Cards */}
+        {/* 6 Ingredient Cards - 3x2 Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {ingredients.map((ingredient, index) => (
             <Card 
@@ -89,23 +113,6 @@ export const FeaturesAndBenefits = () => {
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* Additional Ingredients List */}
-        <div className="bg-card rounded-xl p-6 border border-border max-w-2xl mx-auto mb-10">
-          <h4 className="text-lg font-bold text-foreground text-center mb-4">
-            Also Contains:
-          </h4>
-          <div className="flex flex-wrap justify-center gap-3">
-            {["Menthol", "Camphor", "Vitamin E"].map((item, i) => (
-              <span 
-                key={i}
-                className="px-4 py-2 bg-secondary rounded-full text-sm font-medium text-foreground border border-border"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* CTA Button */}
