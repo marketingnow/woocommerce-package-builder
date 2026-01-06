@@ -7,7 +7,7 @@ import { TrustBanner } from "@/components/TrustBanner";
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { FAQ } from "@/components/FAQ";
 import { ReviewsSection } from "@/components/ReviewsSection";
-import { ShieldCheck, Leaf, Award, Truck, Heart, Zap } from "lucide-react";
+import { PressBanner } from "@/components/PressBanner";
 import terrafreeze from "@/assets/terrafreeze-product.png";
 import terrafreezeStand from "@/assets/terrafreeze-stand-w-benefits.png";
 import tmjReview from "@/assets/tmj-review.png";
@@ -58,37 +58,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trust Icons Bar */}
-      <section className="bg-secondary py-8 border-y border-border">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 text-center">
-            <div className="flex flex-col items-center gap-2">
-              <Leaf className="w-10 h-10 text-primary" />
-              <span className="text-sm font-semibold text-foreground">100% Natural</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <ShieldCheck className="w-10 h-10 text-primary" />
-              <span className="text-sm font-semibold text-foreground">GMP Certified</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Award className="w-10 h-10 text-primary" />
-              <span className="text-sm font-semibold text-foreground">Lab Tested</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Truck className="w-10 h-10 text-primary" />
-              <span className="text-sm font-semibold text-foreground">Free Shipping</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Heart className="w-10 h-10 text-primary" />
-              <span className="text-sm font-semibold text-foreground">Vegan Friendly</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Zap className="w-10 h-10 text-primary" />
-              <span className="text-sm font-semibold text-foreground">Fast Acting</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Press Banner */}
+      <PressBanner />
 
       {/* Trust Banner - Doctor Quote */}
       <TrustBanner />
