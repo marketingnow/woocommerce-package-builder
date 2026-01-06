@@ -1,4 +1,6 @@
 import { Check, X } from "lucide-react";
+import terrafreezeProduct from "@/assets/terrafreeze-product.png";
+import otherCreams from "@/assets/other-creams.jpg";
 
 const comparisonData = [
   {
@@ -62,16 +64,30 @@ export const ComparisonSection = () => {
 
         {/* Comparison Table */}
         <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-lg">
-          {/* Table Header */}
+          {/* Table Header with Product Images */}
           <div className="grid grid-cols-3 bg-secondary">
-            <div className="p-4 md:p-5 font-semibold text-foreground text-left">
+            <div className="p-4 md:p-5 font-semibold text-foreground text-left flex items-center">
               Features
             </div>
             <div className="p-4 md:p-5 font-bold text-primary text-center border-x border-border bg-primary/5">
-              TERRAFREEZE™
+              <div className="flex flex-col items-center gap-2">
+                <img 
+                  src={terrafreezeProduct} 
+                  alt="TERRAFREEZE™" 
+                  className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                />
+                <span className="text-sm md:text-base">TERRAFREEZE™</span>
+              </div>
             </div>
             <div className="p-4 md:p-5 font-semibold text-muted-foreground text-center">
-              Other Creams
+              <div className="flex flex-col items-center gap-2">
+                <img 
+                  src={otherCreams} 
+                  alt="Other Creams" 
+                  className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-lg opacity-60"
+                />
+                <span className="text-sm md:text-base">Other Creams</span>
+              </div>
             </div>
           </div>
 
