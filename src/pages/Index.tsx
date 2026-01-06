@@ -3,7 +3,8 @@ import { ProductDetails } from "@/components/ProductDetails";
 import { SocialProof } from "@/components/SocialProof";
 import { FeaturesAndBenefits } from "@/components/FeaturesAndBenefits";
 import { HowItWorks } from "@/components/HowItWorks";
-import { RiskReversal } from "@/components/RiskReversal";
+import { TrustBanner } from "@/components/TrustBanner";
+import { ComparisonSection } from "@/components/ComparisonSection";
 import { FAQ } from "@/components/FAQ";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { ShieldCheck, Leaf, Award, Truck, Heart, Zap } from "lucide-react";
@@ -24,11 +25,11 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Announcement Bar */}
       <div className="bg-accent text-accent-foreground py-3 text-center text-base font-semibold">
-        <span>🚚 Free Shipping on All Orders | 30-Day Money Back Guarantee</span>
+        <span>🚚 Free Shipping on Orders 3+ Tubes | 180-Day Money Back Guarantee</span>
       </div>
 
       {/* Buy Box Section */}
-      <section className="bg-background py-6 md:py-8">
+      <section id="buy-box" className="bg-background py-6 md:py-8">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
             <ProductGallery 
@@ -41,15 +42,16 @@ const Index = () => {
             />
             <ProductDetails
               title="NATURAL RELIEF FOR YOUR PAIN"
-              subtitle="Reclaim Your Active Life"
+              subtitle="Reclaim Your Active Life. Fast-acting, deep penetrating formula with Emu Oil and Arnica for muscles, joints, and inflammation."
               price={29.95}
-              rating={4.95}
-              reviewCount={100}
+              rating={4.5}
+              reviewCount={2547}
               tagline="Apply for at least 3 months for optimal results."
               features={[
                 "Fast-acting relief for arthritis and joint inflammation",
                 "Reduces muscle pain, stiffness, and swelling",
                 "Promotes healing with Emu Oil and Arnica",
+                "Guaranteed results or your money back",
               ]}
             />
           </div>
@@ -88,6 +90,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Trust Banner - Doctor Quote */}
+      <TrustBanner />
+
       {/* Social Proof / Testimonials Section */}
       <SocialProof />
 
@@ -97,8 +102,8 @@ const Index = () => {
       {/* How It Works Section */}
       <HowItWorks />
 
-      {/* Invalidate Alternatives / Comparison Section */}
-      <RiskReversal />
+      {/* Comparison Section */}
+      <ComparisonSection />
 
       {/* FAQ Section */}
       <FAQ />

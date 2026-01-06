@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Star, Check, Truck, ShieldCheck, AlertCircle } from "lucide-react";
+import { Check, Truck, ShieldCheck, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ProductDetailsProps {
@@ -15,34 +15,34 @@ interface ProductDetailsProps {
 const packages = [
   { 
     id: "1_tube",
-    label: "1 Tube (1 Month)", 
-    description: "You save $10 + Free Shipping",
+    label: "1 Tube", 
+    description: "Perfect for trying TERRAFREEZE™",
     price: 29.95, 
     originalPrice: 39.95,
     savings: 10,
-    freeShipping: true,
+    freeShipping: false,
     badge: null,
   },
   { 
     id: "3_tubes",
-    label: "Value Package 3 (1 FREE)", 
-    description: "You save $30 + Free Shipping",
+    label: "3 Tubes", 
+    description: "Home, work & travel coverage",
     price: 69.95, 
     originalPrice: 99.95,
     savings: 30,
     freeShipping: true,
-    badge: "Most popular",
+    badge: "MOST POPULAR",
     badgeColor: "primary",
   },
   { 
     id: "6_tubes",
-    label: "6 Tubes (4 Months)", 
-    description: "You save $60 + Free Shipping",
+    label: "6 Tubes", 
+    description: "Maximum savings & long-term relief",
     price: 119.95, 
     originalPrice: 179.95,
     savings: 60,
     freeShipping: true,
-    badge: "Best Value",
+    badge: "BEST VALUE",
     badgeColor: "orange",
   },
 ];
@@ -58,23 +58,31 @@ export const ProductDetails = ({
 
   return (
     <div className="flex flex-col gap-5">
-      {/* Rating - Compact */}
+      {/* Rating - Sharp stars like reference */}
       <div className="flex items-center gap-2">
-        <div className="flex">
+        <div className="flex gap-0.5">
           {[...Array(5)].map((_, i) => (
-            <Star
+            <svg 
               key={i}
-              className={cn(
-                "w-4 h-4",
-                i < Math.floor(rating)
-                  ? "fill-star text-star"
-                  : "fill-muted text-muted"
-              )}
-            />
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill={i < Math.floor(rating) ? "hsl(var(--star))" : i < rating ? "url(#half-star)" : "hsl(var(--muted))"}
+            >
+              <defs>
+                <linearGradient id="half-star">
+                  <stop offset="50%" stopColor="hsl(var(--star))" />
+                  <stop offset="50%" stopColor="hsl(var(--muted))" />
+                </linearGradient>
+              </defs>
+              <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
           ))}
         </div>
-        <span className="text-sm font-medium text-primary">
-          {rating} ({reviewCount} reviews)
+        <span className="text-sm font-semibold text-foreground">
+          Excellent {rating}
+        </span>
+        <span className="text-sm text-muted-foreground">
+          | {reviewCount.toLocaleString()} Reviews
         </span>
       </div>
 
@@ -83,16 +91,6 @@ export const ProductDetails = ({
         <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
           {title}
         </h1>
-      </div>
-
-      {/* Price Display */}
-      <div className="flex items-baseline gap-3">
-        <span className="text-2xl md:text-3xl font-bold text-foreground">
-          ${selectedPackage.price.toFixed(2)}
-        </span>
-        <span className="text-lg text-muted-foreground line-through">
-          ${selectedPackage.originalPrice.toFixed(2)}
-        </span>
       </div>
 
       {/* Description */}
@@ -104,66 +102,91 @@ export const ProductDetails = ({
       <div className="flex flex-col gap-2">
         {features.map((feature, index) => (
           <div key={index} className="flex items-center gap-3">
-            <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Check className="w-3 h-3 text-primary" />
+            <div className="w-5 h-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+              <Check className="w-3 h-3 text-success" />
             </div>
             <span className="text-sm md:text-base text-foreground">{feature}</span>
           </div>
         ))}
       </div>
 
-      {/* Sale Banner */}
-      <div className="text-center py-2 border-y border-border">
-        <span className="text-sm font-semibold text-foreground">
-          New Year Sale Up to 60% Off Sitewide
+      {/* Price Display */}
+      <div className="flex items-baseline gap-3">
+        <span className="text-3xl md:text-4xl font-bold text-foreground">
+          ${selectedPackage.price.toFixed(2)}
+        </span>
+        <span className="text-lg text-muted-foreground line-through">
+          ${selectedPackage.originalPrice.toFixed(2)}
+        </span>
+        <span className="bg-success text-white text-xs font-bold px-2 py-1 rounded">
+          SALE
         </span>
       </div>
 
-      {/* Package Selector - Clean stacked */}
+      {/* Sale Banner */}
+      <div className="text-center py-2 border-y border-border">
+        <span className="text-sm font-semibold text-foreground">
+          ─── 180 Day Feel Better Guarantee! ───
+        </span>
+      </div>
+
+      {/* Package Selector - Clean stacked with badges outside */}
       <div className="space-y-2">
         {packages.map((pkg) => (
           <div 
             key={pkg.id}
             className={cn(
-              "relative border rounded-lg transition-all cursor-pointer",
+              "relative border-2 rounded-lg transition-all cursor-pointer overflow-visible",
               selectedPackage.id === pkg.id
-                ? "border-primary bg-primary/5 ring-1 ring-primary"
+                ? "border-primary bg-primary/5"
                 : "border-border hover:border-primary/50"
             )}
             onClick={() => setSelectedPackage(pkg)}
           >
-            {/* Badge */}
+            {/* Badge - positioned outside right edge */}
             {pkg.badge && (
               <div 
                 className={cn(
-                  "absolute top-2 right-2 text-xs font-medium px-2 py-0.5 rounded text-white",
-                  pkg.badgeColor === "orange" ? "bg-amber-500" : "bg-primary"
+                  "absolute -top-3 right-4 text-xs font-bold px-3 py-1 rounded text-white z-10 shadow-md",
+                  pkg.badgeColor === "orange" 
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600" 
+                    : "bg-gradient-to-r from-primary to-blue-600"
                 )}
               >
                 {pkg.badge}
               </div>
             )}
             
-            <label className="flex items-center gap-3 p-3 cursor-pointer">
-              <input
-                type="radio"
-                name="package"
-                value={pkg.id}
-                checked={selectedPackage.id === pkg.id}
-                onChange={() => setSelectedPackage(pkg)}
-                className="w-4 h-4 text-primary border-border focus:ring-primary"
-              />
-              
-              <div className="flex-1">
-                <span className="text-sm md:text-base font-semibold text-foreground block">
-                  {pkg.label}
-                </span>
-                <span className="text-xs text-muted-foreground">{pkg.description}</span>
+            <label className="flex items-center gap-4 p-4 cursor-pointer">
+              <div className={cn(
+                "w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0",
+                selectedPackage.id === pkg.id 
+                  ? "border-primary bg-primary" 
+                  : "border-muted-foreground"
+              )}>
+                {selectedPackage.id === pkg.id && (
+                  <div className="w-2 h-2 rounded-full bg-white" />
+                )}
               </div>
               
-              <div className="text-right">
-                <span className="text-lg font-bold text-foreground block">${pkg.price.toFixed(2)}</span>
-                <span className="text-xs text-muted-foreground line-through">${pkg.originalPrice.toFixed(2)}</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-base font-bold text-foreground">
+                    {pkg.label}
+                  </span>
+                  <span className="bg-gradient-to-r from-success to-green-600 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    SAVE ${pkg.savings}
+                  </span>
+                </div>
+                <span className="text-sm text-muted-foreground block">{pkg.description}</span>
+                {pkg.freeShipping && (
+                  <span className="text-sm font-semibold text-primary">+ FREE Shipping</span>
+                )}
+              </div>
+              
+              <div className="text-right flex-shrink-0">
+                <span className="text-xl font-bold text-foreground block">${pkg.price.toFixed(2)}</span>
+                <span className="text-sm text-muted-foreground line-through">${pkg.originalPrice.toFixed(2)}</span>
               </div>
             </label>
           </div>
@@ -171,30 +194,37 @@ export const ProductDetails = ({
       </div>
 
       {/* Urgency */}
-      <div className="flex items-center gap-2 text-sm">
+      <div className="flex items-center gap-2 text-sm bg-destructive/10 p-3 rounded-lg border border-destructive/20">
         <AlertCircle className="w-4 h-4 text-destructive" />
         <span className="text-foreground">
-          <span className="font-semibold">Almost sold out!</span> Only 9 left in stock.
+          <span className="font-bold text-destructive">Hurry!</span> Limited stock left
         </span>
       </div>
 
-      {/* CTA Button */}
-      <button className="w-full py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base uppercase rounded-lg transition-all">
-        GRAB THIS SET
+      {/* CTA Button - Yellow gradient with dynamic pricing */}
+      <button className="w-full py-4 bg-gradient-to-r from-cta to-amber-500 hover:from-amber-500 hover:to-cta text-black font-bold text-lg uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+        ADD TO CART — ${selectedPackage.price.toFixed(2)}
       </button>
 
-      {/* Money Back + Payment Icons */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <ShieldCheck className="w-4 h-4" />
-          <span>Try it for 30 days or your money back</span>
+      {/* 180-Day Money Back Guarantee */}
+      <div className="flex items-center justify-center gap-3 p-4 bg-secondary rounded-xl border border-border">
+        <div className="w-14 h-14 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
+          <ShieldCheck className="w-8 h-8 text-success" />
         </div>
-        <div className="flex items-center gap-2">
-          <img src="https://cdn-icons-png.flaticon.com/32/349/349221.png" alt="Visa" className="h-6 opacity-70" />
-          <img src="https://cdn-icons-png.flaticon.com/32/349/349228.png" alt="Mastercard" className="h-6 opacity-70" />
-          <img src="https://cdn-icons-png.flaticon.com/32/349/349230.png" alt="PayPal" className="h-6 opacity-70" />
-          <img src="https://cdn-icons-png.flaticon.com/32/6124/6124998.png" alt="Apple Pay" className="h-6 opacity-70" />
+        <div>
+          <p className="font-bold text-foreground">180-Day Money Back Guarantee</p>
+          <p className="text-sm text-muted-foreground">
+            Try it risk-free. If you're not satisfied, get a full refund!
+          </p>
         </div>
+      </div>
+
+      {/* Payment Icons */}
+      <div className="flex items-center justify-center gap-3">
+        <img src="https://cdn-icons-png.flaticon.com/32/349/349221.png" alt="Visa" className="h-6 opacity-70" />
+        <img src="https://cdn-icons-png.flaticon.com/32/349/349228.png" alt="Mastercard" className="h-6 opacity-70" />
+        <img src="https://cdn-icons-png.flaticon.com/32/349/349230.png" alt="PayPal" className="h-6 opacity-70" />
+        <img src="https://cdn-icons-png.flaticon.com/32/6124/6124998.png" alt="Apple Pay" className="h-6 opacity-70" />
       </div>
 
       {/* Product Info Accordion */}
@@ -223,7 +253,7 @@ export const ProductDetails = ({
             </svg>
           </summary>
           <div className="p-4 pt-0 text-sm text-muted-foreground">
-            <p>Free shipping on all orders. 30-day money-back guarantee.</p>
+            <p>Free shipping on orders of 3+ tubes. 180-day money-back guarantee.</p>
           </div>
         </details>
 

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Star } from "lucide-react";
 
 interface ProductGalleryProps {
   images: string[];
@@ -15,7 +14,7 @@ export const ProductGallery = ({ images, testimonial }: ProductGalleryProps) => 
   const [selectedImage, setSelectedImage] = useState(0);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4 lg:sticky lg:top-6 lg:self-start">
       {/* Main Image */}
       <div className="aspect-square bg-secondary rounded-xl overflow-hidden flex items-center justify-center p-6 border border-border">
         <img
@@ -51,29 +50,33 @@ export const ProductGallery = ({ images, testimonial }: ProductGalleryProps) => 
 
       {/* Testimonial Quote - Below Gallery */}
       {testimonial && (
-        <div className="bg-[hsl(120,40%,95%)] rounded-2xl p-6 relative mt-4">
-          <div className="absolute -top-4 right-8">
-            <span className="text-4xl text-red-400">❤</span>
+        <div className="bg-[hsl(120,40%,95%)] rounded-2xl p-5 relative mt-2">
+          <div className="absolute -top-3 right-6">
+            <span className="text-3xl text-red-400">❤</span>
           </div>
           <div className="flex items-start gap-4">
             {testimonial.avatar && (
               <img
                 src={testimonial.avatar}
                 alt={testimonial.author}
-                className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md"
+                className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-md flex-shrink-0"
               />
             )}
             <div className="flex-1">
-              <p className="text-lg text-foreground leading-relaxed">
-                {testimonial.quote}
+              <p className="text-base text-foreground leading-relaxed">
+                "{testimonial.quote}"
               </p>
               <div className="flex items-center gap-2 mt-3">
-                <div className="flex">
+                <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star
+                    <svg 
                       key={i}
-                      className="w-5 h-5 fill-primary text-primary"
-                    />
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="hsl(var(--star))"
+                    >
+                      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    </svg>
                   ))}
                 </div>
                 <span className="text-sm font-medium text-foreground">
