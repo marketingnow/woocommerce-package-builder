@@ -8,6 +8,8 @@ import { ComparisonSection } from "@/components/ComparisonSection";
 import { FAQ } from "@/components/FAQ";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { PressBanner } from "@/components/PressBanner";
+import { GuaranteeSection } from "@/components/GuaranteeSection";
+import { ClinicalSection } from "@/components/ClinicalSection";
 import terrafreeze from "@/assets/terrafreeze-product.png";
 import terrafreezeStand from "@/assets/terrafreeze-stand-w-benefits.png";
 import tmjReview from "@/assets/tmj-review.png";
@@ -75,6 +77,12 @@ const Index = () => {
 
       {/* Comparison Section */}
       <ComparisonSection />
+
+      {/* Guarantee Section */}
+      <GuaranteeSection />
+
+      {/* Clinical Testing Section */}
+      <ClinicalSection />
 
       {/* FAQ Section */}
       <FAQ />
