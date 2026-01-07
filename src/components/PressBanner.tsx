@@ -34,25 +34,25 @@ export const PressBanner = () => {
   ];
 
   return (
-    <section className="bg-secondary/50 py-10 border-y border-border">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section className="bg-secondary/30 py-12 md:py-16 border-y border-border">
+      <div className="container mx-auto px-4 max-w-7xl">
         {/* Headline */}
-        <div className="flex items-center justify-center gap-4 mb-10">
-          <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
-          <h3 className="text-center text-sm md:text-base font-bold text-primary uppercase tracking-wider">
+        <div className="flex items-center justify-center gap-6 mb-12 md:mb-14">
+          <div className="h-px bg-primary/40 flex-1 max-w-24 md:max-w-32"></div>
+          <h3 className="text-center text-sm md:text-base font-bold text-primary uppercase tracking-wider whitespace-nowrap">
             "THE PAIN RELIEF BREAKTHROUGH EVERYONE'S BEEN WAITING FOR"
           </h3>
-          <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
+          <div className="h-px bg-primary/40 flex-1 max-w-24 md:max-w-32"></div>
         </div>
 
-        {/* Press Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
+        {/* Press Logos Row */}
+        <div className="flex flex-wrap justify-center items-start gap-x-12 md:gap-x-16 lg:gap-x-20 gap-y-10">
           {pressQuotes.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center gap-3">
+            <div key={index} className="flex flex-col items-center text-center gap-4 w-40 md:w-44">
               <img 
                 src={item.logo} 
                 alt={item.alt}
-                className="h-8 md:h-10 w-auto object-contain"
+                className="h-7 md:h-9 w-auto object-contain"
               />
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {item.quote}
