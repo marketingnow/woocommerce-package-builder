@@ -29,8 +29,8 @@ const results = [
 
 export const ClinicalSection = () => {
   return (
-    <section className="bg-secondary/30 py-16 md:py-20">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section className="bg-[#f8f9fa] py-16 md:py-24">
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Badge */}
         <div className="flex justify-center mb-6">
           <span className="bg-primary/10 text-primary px-4 py-2 text-sm font-bold uppercase tracking-wider rounded">
@@ -39,69 +39,71 @@ export const ClinicalSection = () => {
         </div>
 
         {/* Headline */}
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2">
           THE TERRAFREEZE
         </h2>
         <p className="text-center text-2xl md:text-3xl lg:text-4xl italic text-primary mb-12 md:mb-16">
           Standard
         </p>
 
-        {/* Three Column Layout */}
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
-          {/* Left Column - Standards */}
-          <div className="space-y-8">
-            {standards.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Check className="w-5 h-5 text-primary" />
+        {/* Three Column Layout - Aligned */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-10 items-start">
+            {/* Left Column - Standards */}
+            <div className="space-y-6">
+              {standards.map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-4 h-4 text-primary" />
                   </div>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-primary uppercase tracking-wide mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Center Column - Product Image */}
-          <div className="flex justify-center">
-            <img 
-              src={terrafreezeIngredients} 
-              alt="TerraFreeze Extra Strength Pain Relief Cream with natural ingredients"
-              className="w-full max-w-sm lg:max-w-md object-contain"
-            />
-          </div>
-
-          {/* Right Column - Clinical Results */}
-          <div className="bg-gradient-to-b from-primary/10 to-primary/5 rounded-2xl p-6 md:p-8 border border-primary/20">
-            <h3 className="text-xl md:text-2xl font-bold text-primary text-center mb-2">
-              Clinical Results, Not Empty Promises
-            </h3>
-            <p className="text-center text-muted-foreground mb-6">
-              Tested on real people with real pain. Here's what they experienced:
-            </p>
-
-            <div className="space-y-4">
-              {results.map((item, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold text-foreground">
-                    {item.percentage}
-                  </p>
-                  <p className="text-muted-foreground">
-                    {item.description}
-                  </p>
+                  <div>
+                    <h3 className="text-base font-bold text-primary uppercase tracking-wide mb-0.5">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-snug">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 p-4 bg-primary/10 rounded-lg">
-              <p className="text-sm text-center text-foreground leading-relaxed">
-                Most "brands" hope you'll trust their marketing. We'd rather show you the numbers. When you address the root cause of pain, not just the surface, results like these become expected, not exceptional.
+            {/* Center Column - Product Image */}
+            <div className="flex justify-center items-start">
+              <img 
+                src={terrafreezeIngredients} 
+                alt="TerraFreeze Extra Strength Pain Relief Cream with natural ingredients"
+                className="w-full max-w-xs object-contain"
+              />
+            </div>
+
+            {/* Right Column - Clinical Results */}
+            <div className="bg-gradient-to-b from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/10">
+              <h3 className="text-lg font-bold text-primary text-center mb-1">
+                Clinical Results, Not Empty Promises
+              </h3>
+              <p className="text-center text-sm text-muted-foreground mb-5">
+                Tested on real people with real pain:
               </p>
+
+              <div className="space-y-3">
+                {results.map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <p className="text-2xl font-bold text-foreground w-16 text-right">
+                      {item.percentage}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 p-3 bg-white/60 rounded-lg">
+                <p className="text-xs text-center text-foreground/80 leading-relaxed">
+                  We'd rather show you the numbers than ask you to trust our marketing.
+                </p>
+              </div>
             </div>
           </div>
         </div>
