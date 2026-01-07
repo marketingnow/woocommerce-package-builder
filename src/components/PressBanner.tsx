@@ -1,29 +1,35 @@
+import laTimesLogo from "@/assets/press-la-times.png";
+import huffpostLogo from "@/assets/press-huffpost.png";
+import mensFitnessLogo from "@/assets/press-mens-fitness.png";
+import womensHealthLogo from "@/assets/press-womens-health.png";
+import cnbcLogo from "@/assets/press-cnbc.png";
+
 export const PressBanner = () => {
   const pressQuotes = [
     {
-      logo: "ABC NEWS",
-      logoStyle: "font-bold text-xl tracking-tight",
+      logo: laTimesLogo,
+      alt: "Los Angeles Times",
       quote: '"Most talked-about pain relief breakthrough going into 2025."'
     },
     {
-      logo: "allure",
-      logoStyle: "font-serif italic text-2xl font-normal lowercase",
+      logo: huffpostLogo,
+      alt: "HuffPost",
       quote: '"Noticed a difference in less than 24 hours"'
     },
     {
-      logo: "Forbes",
-      logoStyle: "font-serif text-2xl font-bold",
+      logo: mensFitnessLogo,
+      alt: "Men's Fitness",
+      quote: '"Most exciting pain relief innovation we\'ve seen in years."'
+    },
+    {
+      logo: womensHealthLogo,
+      alt: "Women's Health",
       quote: '"TERRAFREEZE is redefining pain relief with clinical-grade ingredients."'
     },
     {
-      logo: "VANITY FAIR",
-      logoStyle: "font-bold text-lg tracking-[0.2em] uppercase",
+      logo: cnbcLogo,
+      alt: "CNBC",
       quote: '"Spoiler: it\'s REALLY GOOD."'
-    },
-    {
-      logo: "Men's Health",
-      logoStyle: "font-bold text-lg",
-      quote: '"Most exciting pain relief innovation we\'ve seen in years."'
     },
   ];
 
@@ -43,9 +49,11 @@ export const PressBanner = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
           {pressQuotes.map((item, index) => (
             <div key={index} className="flex flex-col items-center text-center gap-3">
-              <span className={`text-foreground ${item.logoStyle}`}>
-                {item.logo}
-              </span>
+              <img 
+                src={item.logo} 
+                alt={item.alt}
+                className="h-8 md:h-10 w-auto object-contain"
+              />
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {item.quote}
               </p>
