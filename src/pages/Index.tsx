@@ -62,17 +62,17 @@ const Index = () => {
               }}
             />
             <ProductDetails
-              title="NATURAL RELIEF FOR YOUR PAIN"
-              subtitle="Reclaim Your Active Life. Fast-acting, deep penetrating formula with Emu Oil and Arnica for muscles, joints, and inflammation."
+              title="10% MENTHOL PAIN RELIEF CREAM"
+              subtitle="Maximum-strength 10% Menthol delivers powerful cooling relief in seconds — targeting sore muscles, stiff joints, and chronic inflammation at the source."
               price={29.95}
               rating={4.5}
               reviewCount={2547}
               tagline="Apply for at least 3 months for optimal results."
               features={[
-                "Fast-acting relief for arthritis and joint inflammation",
-                "Reduces muscle pain, stiffness, and swelling",
-                "Promotes healing with Emu Oil and Arnica",
-                "Guaranteed results or your money back",
+                "Maximum-strength 10% Menthol for fast cooling relief",
+                "Soothes arthritis, back pain, and joint stiffness in minutes",
+                "Deep-penetrating formula with Emu Oil and Arnica",
+                "Non-greasy, fast-absorbing — works in seconds",
               ]}
               onPackageChange={(id) => setActiveImage(packageImageMap[id] ?? terrafreeze3Pack)}
             />
