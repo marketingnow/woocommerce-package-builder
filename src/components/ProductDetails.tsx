@@ -149,7 +149,7 @@ export const ProductDetails = ({
             onClick={(e) => {
               if (selectedPackage.id !== pkg.id) {
                 e.preventDefault();
-                setSelectedPackage(pkg);
+                selectPackage(pkg);
               }
             }}
             className={cn(
