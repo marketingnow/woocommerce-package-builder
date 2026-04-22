@@ -18,22 +18,21 @@ import terrafreeze3Pack from "@/assets/terrafreeze-3-pack.png";
 import terrafreeze6Pack from "@/assets/terrafreeze-6-pack.png";
 
 const Index = () => {
-  // Gallery images - index 0=1 tube, 1=3 tubes, 2=6 tubes, then extras
+  // Thumbnails shown in gallery (no 3/6 pack here — they only appear when selected)
   const productImages = [
     terrafreeze,
-    terrafreeze3Pack,
-    terrafreeze6Pack,
     terrafreezeStand,
     tmjReview,
   ];
 
-  const packageImageIndex: Record<string, number> = {
-    "1_tube": 0,
-    "3_tubes": 1,
-    "6_tubes": 2,
+  // Image swapped into the main viewer when a package is selected
+  const packageImageMap: Record<string, string> = {
+    "1_tube": terrafreeze,
+    "3_tubes": terrafreeze3Pack,
+    "6_tubes": terrafreeze6Pack,
   };
 
-  const [activeImage, setActiveImage] = useState(1);
+  const [activeImage, setActiveImage] = useState<string>(terrafreeze3Pack);
 
   return (
     <div className="min-h-screen bg-background">
