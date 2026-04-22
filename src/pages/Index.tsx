@@ -62,7 +62,7 @@ const Index = () => {
               }}
             />
             <ProductDetails
-              title="10% MENTHOL PAIN RELIEF CREAM"
+              title="10% Fast Acting Pain Relief Cream by TERRAFREEZE"
               subtitle="Maximum-strength 10% Menthol delivers powerful cooling relief in seconds — targeting sore muscles, stiff joints, and chronic inflammation at the source."
               price={29.95}
               rating={4.5}
