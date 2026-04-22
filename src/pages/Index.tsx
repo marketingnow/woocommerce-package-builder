@@ -68,6 +68,7 @@ const Index = () => {
                 "Promotes healing with Emu Oil and Arnica",
                 "Guaranteed results or your money back",
               ]}
+              onPackageChange={(id) => setActiveImage(packageImageIndex[id] ?? 1)}
             />
           </div>
         </div>
