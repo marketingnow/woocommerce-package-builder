@@ -10,6 +10,7 @@ interface ProductDetailsProps {
   reviewCount: number;
   features: string[];
   tagline?: string;
+  onPackageChange?: (packageId: string) => void;
 }
 
 const packages = [
@@ -56,8 +57,14 @@ export const ProductDetails = ({
   rating,
   reviewCount,
   features,
+  onPackageChange,
 }: ProductDetailsProps) => {
   const [selectedPackage, setSelectedPackage] = useState(packages[1]);
+
+  const selectPackage = (pkg: typeof packages[number]) => {
+    setSelectedPackage(pkg);
+    onPackageChange?.(pkg.id);
+  };
 
   return (
     <div className="flex flex-col gap-5">
