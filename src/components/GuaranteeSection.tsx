@@ -34,7 +34,7 @@ export const GuaranteeSection = () => {
             </p>
             
             <p className="text-lg md:text-xl text-foreground leading-relaxed">
-              That's why we're offering our <strong>"Empty Tube" Guarantee</strong> — use every last bit, and if you aren't amazed by the results, get a <strong>100% refund!</strong>
+              That's why we're offering our <strong>"Empty Jar" Guarantee</strong> — use every last bit, and if you aren't amazed by the results, get a <strong>100% refund!</strong>
             </p>
             
             <p className="text-lg md:text-xl text-foreground leading-relaxed">

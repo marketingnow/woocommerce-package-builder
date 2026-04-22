@@ -272,7 +272,7 @@ export const ProductDetails = ({
             </svg>
           </summary>
           <div className="p-4 pt-0 text-sm text-muted-foreground">
-            <p>Free shipping on orders of 3+ tubes. 180-day money-back guarantee.</p>
+            <p>Free shipping on orders of 3+ jars. 180-day money-back guarantee.</p>
           </div>
         </details>
 
