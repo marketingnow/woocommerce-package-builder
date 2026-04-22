@@ -250,7 +250,7 @@ export const ProductDetails = ({
       <div className="space-y-0 border rounded-lg overflow-hidden">
         <details className="group border-b border-border">
           <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
-            <span>What's Inside</span>
+            <span>Ingredients</span>
             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -259,12 +259,13 @@ export const ProductDetails = ({
             <ul className="space-y-1">
               <li>• 10% Menthol — maximum OTC strength for fast cooling relief</li>
               <li>• Emu Oil & Arnica Montana for deep tissue penetration</li>
+              <li>• MSM and natural botanicals for joint support</li>
               <li>• Non-greasy, fast-absorbing formula — no sticky residue</li>
             </ul>
           </div>
         </details>
-        
-        <details className="group border-b border-border">
+
+        <details className="group">
           <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
             <span>Shipping & Guarantee</span>
             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -273,18 +274,6 @@ export const ProductDetails = ({
           </summary>
           <div className="p-4 pt-0 text-sm text-muted-foreground">
             <p>Free shipping on orders of 3+ jars. 180-day money-back guarantee.</p>
-          </div>
-        </details>
-
-        <details className="group">
-          <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
-            <span>Ingredients & Standards</span>
-            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </summary>
-          <div className="p-4 pt-0 text-sm text-muted-foreground">
-            <p>Active ingredients: Menthol, Emu Oil, Arnica Montana, MSM, and natural botanicals.</p>
           </div>
         </details>
       </div>
