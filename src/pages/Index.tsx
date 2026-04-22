@@ -38,7 +38,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Announcement Bar */}
       <div className="bg-accent text-accent-foreground py-3 text-center text-base font-semibold">
-        <span>🚚 Free Shipping on Orders 3+ Tubes | 180-Day Money Back Guarantee</span>
+        <span>🚚 Free Shipping on Orders 3+ Jars | 180-Day Money Back Guarantee</span>
       </div>
 
       {/* Buy Box Section */}
