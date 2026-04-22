@@ -18,13 +18,22 @@ import terrafreeze3Pack from "@/assets/terrafreeze-3-pack.png";
 import terrafreeze6Pack from "@/assets/terrafreeze-6-pack.png";
 
 const Index = () => {
-  // Gallery images - add more as needed
+  // Gallery images - index 0=1 tube, 1=3 tubes, 2=6 tubes, then extras
   const productImages = [
     terrafreeze,
+    terrafreeze3Pack,
+    terrafreeze6Pack,
     terrafreezeStand,
     tmjReview,
-    // Add more images here (up to 5)
   ];
+
+  const packageImageIndex: Record<string, number> = {
+    "1_tube": 0,
+    "3_tubes": 1,
+    "6_tubes": 2,
+  };
+
+  const [activeImage, setActiveImage] = useState(1);
 
   return (
     <div className="min-h-screen bg-background">
@@ -39,6 +48,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
             <ProductGallery 
               images={productImages}
+              activeImage={activeImage}
               testimonial={{
                 quote: "TerraFreeze Cream has been a game-changer for my TMJ pain, providing quick cooling relief within minutes of application.",
                 author: "Sarah M.",
