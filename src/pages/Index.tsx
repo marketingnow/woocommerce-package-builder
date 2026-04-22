@@ -63,16 +63,16 @@ const Index = () => {
             />
             <ProductDetails
               title="10% Fast Acting Pain Relief Cream by TERRAFREEZE"
-              subtitle="Maximum-strength 10% Menthol delivers powerful cooling relief in seconds — targeting sore muscles, stiff joints, and chronic inflammation at the source."
+              subtitle="Maximum-strength cooling relief in seconds — targeting sore muscles, stiff joints, and chronic inflammation at the source."
               price={29.95}
               rating={4.5}
               reviewCount={2547}
               tagline="Apply for at least 3 months for optimal results."
               features={[
-                "Maximum-strength 10% Menthol for fast cooling relief",
-                "Soothes arthritis, back pain, and joint stiffness in minutes",
+                "Fast-acting cooling relief in minutes, not hours",
+                "Soothes arthritis, back pain, and joint stiffness",
                 "Deep-penetrating formula with Emu Oil and Arnica",
-                "Non-greasy, fast-absorbing — works in seconds",
+                "Non-greasy, fast-absorbing — no sticky residue",
               ]}
               onPackageChange={(id) => setActiveImage(packageImageMap[id] ?? terrafreeze3Pack)}
             />
