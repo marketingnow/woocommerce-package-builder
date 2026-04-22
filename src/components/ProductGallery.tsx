@@ -57,7 +57,7 @@ export const ProductGallery = ({ images, activeImage, testimonial }: ProductGall
 
       {/* Testimonial Quote - Below Gallery */}
       {testimonial && (
-        <div className="bg-[hsl(120,40%,95%)] rounded-2xl p-5 relative mt-2">
+        <div className="hidden md:block bg-[hsl(120,40%,95%)] rounded-2xl p-5 relative mt-2">
           <div className="absolute -top-3 right-6">
             <span className="text-3xl text-red-400">❤</span>
           </div>
