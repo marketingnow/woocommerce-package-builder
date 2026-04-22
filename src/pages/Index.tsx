@@ -36,6 +36,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Preload package images so the gallery swap is instant */}
+      <div aria-hidden className="hidden">
+        <img src={terrafreeze} alt="" />
+        <img src={terrafreeze3Pack} alt="" />
+        <img src={terrafreeze6Pack} alt="" />
+      </div>
+
       {/* Announcement Bar */}
       <div className="bg-accent text-accent-foreground py-3 text-center text-base font-semibold">
         <span>🚚 Free Shipping on Orders 3+ Jars | 180-Day Money Back Guarantee</span>
