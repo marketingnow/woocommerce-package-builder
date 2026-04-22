@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProductDetails } from "@/components/ProductDetails";
 import { SocialProof } from "@/components/SocialProof";
@@ -13,6 +14,8 @@ import { ClinicalSection } from "@/components/ClinicalSection";
 import terrafreeze from "@/assets/terrafreeze-product.png";
 import terrafreezeStand from "@/assets/terrafreeze-stand-w-benefits.png";
 import tmjReview from "@/assets/tmj-review.png";
+import terrafreeze3Pack from "@/assets/terrafreeze-3-pack.png";
+import terrafreeze6Pack from "@/assets/terrafreeze-6-pack.png";
 
 const Index = () => {
   // Gallery images - add more as needed
