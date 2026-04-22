@@ -67,7 +67,7 @@ const Index = () => {
                 "Promotes healing with Emu Oil and Arnica",
                 "Guaranteed results or your money back",
               ]}
-              onPackageChange={(id) => setActiveImage(packageImageIndex[id] ?? 1)}
+              onPackageChange={(id) => setActiveImage(packageImageMap[id] ?? terrafreeze3Pack)}
             />
           </div>
         </div>

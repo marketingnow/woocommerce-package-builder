@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface ProductGalleryProps {
   images: string[];
-  activeImage?: number;
+  activeImage?: string;
   testimonial?: {
     quote: string;
     author: string;
@@ -12,10 +12,10 @@ interface ProductGalleryProps {
 }
 
 export const ProductGallery = ({ images, activeImage, testimonial }: ProductGalleryProps) => {
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string>(activeImage ?? images[0]);
 
   useEffect(() => {
-    if (typeof activeImage === "number") {
+    if (activeImage) {
       setSelectedImage(activeImage);
     }
   }, [activeImage]);
@@ -25,7 +25,7 @@ export const ProductGallery = ({ images, activeImage, testimonial }: ProductGall
       {/* Main Image */}
       <div className="aspect-square bg-secondary rounded-xl overflow-hidden flex items-center justify-center p-6 border border-border">
         <img
-          src={images[selectedImage]}
+          src={selectedImage}
           alt="TERRAFREEZE Pain Relief Cream"
           className="w-full h-full object-contain"
         />
@@ -37,10 +37,10 @@ export const ProductGallery = ({ images, activeImage, testimonial }: ProductGall
           {images.map((image, index) => (
             <button
               key={index}
-              onClick={() => setSelectedImage(index)}
+              onClick={() => setSelectedImage(image)}
               className={cn(
                 "aspect-square rounded-lg overflow-hidden border-2 transition-all bg-secondary p-2 hover:scale-105",
-                selectedImage === index
+                selectedImage === image
                   ? "border-primary ring-2 ring-primary/20"
                   : "border-border hover:border-primary/50"
               )}
