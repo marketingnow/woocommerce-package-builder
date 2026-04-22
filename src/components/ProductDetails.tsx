@@ -16,7 +16,7 @@ interface ProductDetailsProps {
 const packages = [
   { 
     id: "1_tube",
-    label: "1 Tube", 
+    label: "1 Jar", 
     description: "Perfect for trying TERRAFREEZE™",
     price: 29.00, 
     originalPrice: 39.95,
@@ -27,7 +27,7 @@ const packages = [
   },
   { 
     id: "3_tubes",
-    label: "3 Tubes", 
+    label: "3 Jars", 
     description: "Home, work & travel coverage",
     price: 69.97, 
     originalPrice: 99.95,
@@ -39,7 +39,7 @@ const packages = [
   },
   { 
     id: "6_tubes",
-    label: "6 Tubes", 
+    label: "6 Jars", 
     description: "Maximum savings & long-term relief",
     price: 119.00, 
     originalPrice: 179.95,
