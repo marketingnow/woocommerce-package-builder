@@ -17,33 +17,36 @@ const packages = [
     id: "1_tube",
     label: "1 Tube", 
     description: "Perfect for trying TERRAFREEZE™",
-    price: 29.95, 
+    price: 29.00, 
     originalPrice: 39.95,
     savings: 10,
     freeShipping: false,
     badge: null,
+    checkoutUrl: "https://terrafreeze.com/checkout/?add-to-cart=19140&variation_id=32168",
   },
   { 
     id: "3_tubes",
     label: "3 Tubes", 
     description: "Home, work & travel coverage",
-    price: 69.95, 
+    price: 69.97, 
     originalPrice: 99.95,
     savings: 30,
     freeShipping: true,
     badge: "MOST POPULAR",
     badgeColor: "primary",
+    checkoutUrl: "https://terrafreeze.com/checkout/?add-to-cart=19140&variation_id=32169",
   },
   { 
     id: "6_tubes",
     label: "6 Tubes", 
     description: "Maximum savings & long-term relief",
-    price: 119.95, 
+    price: 119.00, 
     originalPrice: 179.95,
     savings: 60,
     freeShipping: true,
     badge: "BEST VALUE",
     badgeColor: "orange",
+    checkoutUrl: "https://terrafreeze.com/checkout/?add-to-cart=19140&variation_id=32170",
   },
 ];
 
@@ -133,15 +136,18 @@ export const ProductDetails = ({
       {/* Package Selector - Clean stacked with badges outside */}
       <div className="space-y-2">
         {packages.map((pkg) => (
-          <div 
+          <a
             key={pkg.id}
+            href={pkg.checkoutUrl}
+            onMouseEnter={() => setSelectedPackage(pkg)}
+            onFocus={() => setSelectedPackage(pkg)}
+            onClick={() => setSelectedPackage(pkg)}
             className={cn(
-              "relative border-2 rounded-lg transition-all cursor-pointer overflow-visible",
+              "relative block border-2 rounded-lg transition-all cursor-pointer overflow-visible no-underline",
               selectedPackage.id === pkg.id
                 ? "border-primary bg-primary/5"
                 : "border-border hover:border-primary/50"
             )}
-            onClick={() => setSelectedPackage(pkg)}
           >
             {/* Badge - positioned outside right edge */}
             {pkg.badge && (
@@ -157,7 +163,7 @@ export const ProductDetails = ({
               </div>
             )}
             
-            <label className="flex items-center gap-4 p-4 cursor-pointer">
+            <div className="flex items-center gap-4 p-4">
               <div className={cn(
                 "w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0",
                 selectedPackage.id === pkg.id 
@@ -188,8 +194,8 @@ export const ProductDetails = ({
                 <span className="text-xl font-bold text-foreground block">${pkg.price.toFixed(2)}</span>
                 <span className="text-sm text-muted-foreground line-through">${pkg.originalPrice.toFixed(2)}</span>
               </div>
-            </label>
-          </div>
+            </div>
+          </a>
         ))}
       </div>
 
@@ -202,9 +208,12 @@ export const ProductDetails = ({
       </div>
 
       {/* CTA Button - Yellow gradient with dynamic pricing */}
-      <button className="w-full py-4 bg-gradient-to-r from-cta to-amber-500 hover:from-amber-500 hover:to-cta text-black font-bold text-lg uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+      <a
+        href={selectedPackage.checkoutUrl}
+        className="block text-center w-full py-4 bg-gradient-to-r from-cta to-amber-500 hover:from-amber-500 hover:to-cta text-black font-bold text-lg uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 no-underline"
+      >
         ADD TO CART — ${selectedPackage.price.toFixed(2)}
-      </button>
+      </a>
 
       {/* 180-Day Money Back Guarantee */}
       <div className="flex items-center justify-center gap-3 p-4 bg-secondary rounded-xl border border-border">
