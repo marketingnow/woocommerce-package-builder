@@ -257,9 +257,9 @@ export const ProductDetails = ({
           </summary>
           <div className="p-4 pt-0 text-sm text-muted-foreground">
             <ul className="space-y-1">
-              <li>• Fast-acting pain relief for muscles and joints</li>
-              <li>• Contains Emu Oil and Arnica for enhanced healing</li>
-              <li>• Non-greasy, fast-absorbing formula</li>
+              <li>• 10% Menthol — maximum OTC strength for fast cooling relief</li>
+              <li>• Emu Oil & Arnica Montana for deep tissue penetration</li>
+              <li>• Non-greasy, fast-absorbing formula — no sticky residue</li>
             </ul>
           </div>
         </details>
