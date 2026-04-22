@@ -136,15 +136,18 @@ export const ProductDetails = ({
       {/* Package Selector - Clean stacked with badges outside */}
       <div className="space-y-2">
         {packages.map((pkg) => (
-          <div 
+          <a
             key={pkg.id}
+            href={pkg.checkoutUrl}
+            onMouseEnter={() => setSelectedPackage(pkg)}
+            onFocus={() => setSelectedPackage(pkg)}
+            onClick={() => setSelectedPackage(pkg)}
             className={cn(
-              "relative border-2 rounded-lg transition-all cursor-pointer overflow-visible",
+              "relative block border-2 rounded-lg transition-all cursor-pointer overflow-visible no-underline",
               selectedPackage.id === pkg.id
                 ? "border-primary bg-primary/5"
                 : "border-border hover:border-primary/50"
             )}
-            onClick={() => setSelectedPackage(pkg)}
           >
             {/* Badge - positioned outside right edge */}
             {pkg.badge && (
@@ -160,7 +163,7 @@ export const ProductDetails = ({
               </div>
             )}
             
-            <label className="flex items-center gap-4 p-4 cursor-pointer">
+            <div className="flex items-center gap-4 p-4">
               <div className={cn(
                 "w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0",
                 selectedPackage.id === pkg.id 
@@ -191,8 +194,8 @@ export const ProductDetails = ({
                 <span className="text-xl font-bold text-foreground block">${pkg.price.toFixed(2)}</span>
                 <span className="text-sm text-muted-foreground line-through">${pkg.originalPrice.toFixed(2)}</span>
               </div>
-            </label>
-          </div>
+            </div>
+          </a>
         ))}
       </div>
 
