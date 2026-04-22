@@ -250,7 +250,7 @@ export const ProductDetails = ({
       <div className="space-y-0 border rounded-lg overflow-hidden">
         <details className="group border-b border-border">
           <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
-            <span>What's Inside the Kit</span>
+            <span>What's Inside</span>
             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
