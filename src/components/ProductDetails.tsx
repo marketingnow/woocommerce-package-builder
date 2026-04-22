@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, Truck, ShieldCheck, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import paymentIcons from "@/assets/payment-icons.webp";
 
 interface ProductDetailsProps {
   title: string;
@@ -225,6 +226,13 @@ export const ProductDetails = ({
         ADD TO CART — ${selectedPackage.price.toFixed(2)}
       </a>
 
+      {/* Payment Icons - full-width under CTA */}
+      <img
+        src={paymentIcons}
+        alt="Accepted payment methods: Amex, Apple Pay, Diners, Discover, Mastercard, Shop Pay, Visa"
+        className="w-full h-auto"
+      />
+
       {/* 180-Day Money Back Guarantee */}
       <div className="flex items-center justify-center gap-3 p-4 bg-secondary rounded-xl border border-border">
         <div className="w-14 h-14 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
@@ -236,14 +244,6 @@ export const ProductDetails = ({
             Try it risk-free. If you're not satisfied, get a full refund!
           </p>
         </div>
-      </div>
-
-      {/* Payment Icons */}
-      <div className="flex items-center justify-center gap-3">
-        <img src="https://cdn-icons-png.flaticon.com/32/349/349221.png" alt="Visa" className="h-6 opacity-70" />
-        <img src="https://cdn-icons-png.flaticon.com/32/349/349228.png" alt="Mastercard" className="h-6 opacity-70" />
-        <img src="https://cdn-icons-png.flaticon.com/32/349/349230.png" alt="PayPal" className="h-6 opacity-70" />
-        <img src="https://cdn-icons-png.flaticon.com/32/6124/6124998.png" alt="Apple Pay" className="h-6 opacity-70" />
       </div>
 
       {/* Product Info Accordion */}
