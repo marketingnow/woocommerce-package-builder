@@ -211,11 +211,16 @@ export const ProductDetails = ({
       </div>
 
       {/* Urgency */}
-      <div className="flex items-center gap-2 text-sm bg-destructive/10 p-3 rounded-lg border border-destructive/20">
-        <AlertCircle className="w-4 h-4 text-destructive" />
-        <span className="text-foreground">
-          <span className="font-bold text-destructive">Hurry!</span> Limited stock left
-        </span>
+      <div className="flex flex-col gap-2 text-sm bg-destructive/10 p-3 rounded-lg border border-destructive/20">
+        <div className="flex items-center gap-2">
+          <AlertCircle className="w-4 h-4 text-destructive flex-shrink-0" />
+          <span className="text-foreground">
+            <span className="font-bold text-destructive">Hurry!</span> Limited stock left
+          </span>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          This product sold out 9 times last year. Take advantage of the limited sale and order now before stock runs out again.
+        </p>
       </div>
 
       {/* CTA Button - Yellow gradient with dynamic pricing */}
