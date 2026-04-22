@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface ProductGalleryProps {
   images: string[];
+  activeImage?: number;
   testimonial?: {
     quote: string;
     author: string;
@@ -10,8 +11,14 @@ interface ProductGalleryProps {
   };
 }
 
-export const ProductGallery = ({ images, testimonial }: ProductGalleryProps) => {
+export const ProductGallery = ({ images, activeImage, testimonial }: ProductGalleryProps) => {
   const [selectedImage, setSelectedImage] = useState(0);
+
+  useEffect(() => {
+    if (typeof activeImage === "number") {
+      setSelectedImage(activeImage);
+    }
+  }, [activeImage]);
 
   return (
     <div className="flex flex-col gap-4 lg:sticky lg:top-6 lg:self-start">
