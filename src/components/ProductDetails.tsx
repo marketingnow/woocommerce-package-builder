@@ -139,9 +139,12 @@ export const ProductDetails = ({
           <a
             key={pkg.id}
             href={pkg.checkoutUrl}
-            onMouseEnter={() => setSelectedPackage(pkg)}
-            onFocus={() => setSelectedPackage(pkg)}
-            onClick={() => setSelectedPackage(pkg)}
+            onClick={(e) => {
+              if (selectedPackage.id !== pkg.id) {
+                e.preventDefault();
+                setSelectedPackage(pkg);
+              }
+            }}
             className={cn(
               "relative block border-2 rounded-lg transition-all cursor-pointer overflow-visible no-underline",
               selectedPackage.id === pkg.id
