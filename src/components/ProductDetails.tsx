@@ -208,9 +208,12 @@ export const ProductDetails = ({
       </div>
 
       {/* CTA Button - Yellow gradient with dynamic pricing */}
-      <button className="w-full py-4 bg-gradient-to-r from-cta to-amber-500 hover:from-amber-500 hover:to-cta text-black font-bold text-lg uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+      <a
+        href={selectedPackage.checkoutUrl}
+        className="block text-center w-full py-4 bg-gradient-to-r from-cta to-amber-500 hover:from-amber-500 hover:to-cta text-black font-bold text-lg uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 no-underline"
+      >
         ADD TO CART — ${selectedPackage.price.toFixed(2)}
-      </button>
+      </a>
 
       {/* 180-Day Money Back Guarantee */}
       <div className="flex items-center justify-center gap-3 p-4 bg-secondary rounded-xl border border-border">
