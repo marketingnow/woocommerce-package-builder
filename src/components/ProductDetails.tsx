@@ -250,6 +250,18 @@ export const ProductDetails = ({
       <div className="space-y-0 border rounded-lg overflow-hidden">
         <details className="group border-b border-border">
           <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
+            <span>How long does it take to see results?</span>
+            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div className="p-4 pt-0 text-sm text-muted-foreground">
+            <p>Most users feel the cooling relief within minutes of applying. For chronic pain or stiffness, consistent daily use over 2–4 weeks delivers the best long-term results.</p>
+          </div>
+        </details>
+
+        <details className="group border-b border-border">
+          <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
             <span>Ingredients</span>
             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -265,6 +277,18 @@ export const ProductDetails = ({
           </div>
         </details>
 
+        <details className="group border-b border-border">
+          <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
+            <span>What makes TERRAFREEZE different?</span>
+            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div className="p-4 pt-0 text-sm text-muted-foreground">
+            <p>Most pain creams stop at the surface. TERRAFREEZE uses 10% Menthol paired with Emu Oil — a clinical-grade carrier that drives active ingredients through all 7 layers of skin, reaching the source of pain instead of just masking it.</p>
+          </div>
+        </details>
+
         <details className="group">
           <summary className="flex items-center justify-between cursor-pointer p-4 font-medium text-sm text-foreground hover:bg-muted/50 transition-colors">
             <span>Shipping & Guarantee</span>
@@ -273,7 +297,7 @@ export const ProductDetails = ({
             </svg>
           </summary>
           <div className="p-4 pt-0 text-sm text-muted-foreground">
-            <p>Free shipping on orders of 3+ jars. 180-day money-back guarantee.</p>
+            <p>Free shipping on orders of 3+ jars. Backed by our 180-day money-back guarantee — if you're not satisfied for any reason, send it back (even empty) for a full refund.</p>
           </div>
         </details>
       </div>
