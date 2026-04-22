@@ -99,7 +99,7 @@ export const ProductDetails = ({
 
       {/* Title - Refined, smaller */}
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-tight normal-case tracking-normal">
           {title}
         </h1>
       </div>
